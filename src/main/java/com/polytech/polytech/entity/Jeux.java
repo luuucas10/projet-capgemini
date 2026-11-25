@@ -1,7 +1,5 @@
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package com.polytech.polytech.entity;
+import jakarta.persistence.*;
 
 @Entity 
 @Table (name="jeux")
