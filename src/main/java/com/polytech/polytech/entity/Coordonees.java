@@ -53,11 +53,11 @@ public class Coordonees {
         this.longitude = longitude;
     }
 
-    public long getJeuxId() {
+    public int getJeuxId() {
         return jeuxId;
     }
 
-        public void setJeuxId(long jeuxId) {
+        public void setJeuxId(int jeuxId) {
         this.jeuxId = jeuxId;
     }
 }
