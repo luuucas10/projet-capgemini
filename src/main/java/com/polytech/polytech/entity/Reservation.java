@@ -10,10 +10,13 @@ public class Reservation {
     private long id;
 
     @Column (name="utilisateur_id")
-    private long utilisateurId;
+    private int utilisateurId;
 
     @Column (name="jeux_id")
-    private long jeuxId;
+    private int jeuxId;
+
+    @Column (name="reservation")
+    private int reservation;
 
     @Column (name="date_debut")
     private String dateDebut;
@@ -54,6 +57,14 @@ public class Reservation {
 
     public void setJeuxId(long jeuxId) {
         this.jeuxId = jeuxId;
+    }
+
+    public int getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(int reservation) {
+        this.reservation = reservation;
     }
 
     public String getDateDebut() {

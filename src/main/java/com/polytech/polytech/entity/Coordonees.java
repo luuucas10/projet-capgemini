@@ -2,28 +2,28 @@ package com.polytech.polytech.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name="coordonees")
+@Table (name="coordonnees")
 public class Coordonees {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column (name="lattitude")
-    private String lattitude;
+    @Column (name="latitude")
+    private String latitude;
 
     @Column (name="longitude")
     private String longitude;
 
     @Column (name="jeux_id")
-    private long jeuxId;
+    private int jeuxId;
 
     //constructeurs
     public Coordonees() {
     }
 
-    public Coordonees(String lattitude, String longitude, long jeuxId) {
-        this.lattitude = lattitude;
+    public Coordonees(String latitude, String longitude, int jeuxId) {
+        this.latitude = latitude;
         this.longitude = longitude;
         this.jeuxId = jeuxId;
     }
@@ -37,12 +37,12 @@ public class Coordonees {
         this.id = id;
     }
 
-    public String getLattitude() {
-        return lattitude;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setLattitude(String lattitude) {
-        this.lattitude = lattitude;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     public String getLongitude() {
@@ -57,7 +57,7 @@ public class Coordonees {
         return jeuxId;
     }
 
-    public void setJeuxId(long jeuxId) {
+        public void setJeuxId(long jeuxId) {
         this.jeuxId = jeuxId;
     }
 }
