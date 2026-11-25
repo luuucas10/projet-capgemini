@@ -2,7 +2,7 @@ spring:
   application:
     name: polytech
   datasource:
-    url:jdbc: mariadb://localhost:3306/aire
+    url:jdbc: jdbc:mariadb://localhost:3306/aire
     username: toto
     password: test
     driver-class-name: org.mariadb.jdbc.Driver
