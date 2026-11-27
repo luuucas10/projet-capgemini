@@ -2,9 +2,9 @@ spring:
   application:
     name: polytech
   datasource:
-    url:jdbc: jdbc:mariadb://localhost:3306/capegemini
-    username: toto
-    password: test
+    url: jdbc:mariadb://localhost:3306/aire
+    username: root
+    password: root
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     properties:
@@ -12,3 +12,9 @@ spring:
     show-sql: true
   config:
     import: "optional:file:.env[.yml]"
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always

@@ -2,7 +2,6 @@ package com.polytech.polytech.controller;
 
 import com.polytech.polytech.DTO.UtilisateurDTO;
 import com.polytech.polytech.services.UtilisateurService;
-import com.polytech.polytech.mapper.Mapper;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 @RestController 
-@RequestMapping("api/utilisateurs")
+@RequestMapping("/api/utilisateurs")
 public class UtilisateurController {
     private final UtilisateurService utilisateurService;
-    private final Mapper mapper;
 
-    public UtilisateurController(UtilisateurService utilisateurService, Mapper mapper) {
+
+    public UtilisateurController(UtilisateurService utilisateurService) {
         this.utilisateurService = utilisateurService;
-        this.mapper = mapper;
     }
 
     @GetMapping 
