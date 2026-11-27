@@ -42,19 +42,23 @@ public class Mapper {
 
     public static Jeux toJeuxEntity(JeuxDTO jeuxDTO) {
         Jeux jeux = new Jeux();
-        jeux.setId(jeuxDTO.id());
+        if (jeuxDTO.id() != null) {
+            jeux.setId(jeuxDTO.id());
+        }
         jeux.setNom(jeuxDTO.nom());
         jeux.setQuantite(jeuxDTO.quantite());
         jeux.setDescription(jeuxDTO.description());
         return jeux;
     }
 
-    public static Coordonees toCoordonneesEntity(CoordoneesDTO coordonneesDTO) {
-        Coordonees coordonees = new  Coordonees();
-        coordonees.setId(coordonneesDTO.id());
-        coordonees.setId(coordonneesDTO.latitude());
-        coordonees.setId(coordonneesDTO.longitude());
-        coordonees.setId(coordonneesDTO.jeuxId());
+    public static Coordonees toCoordonneesEntity(CoordonneesDTO coordonneesDTO) {
+        Coordonees coordonees = new Coordonees();
+        if (coordonneesDTO.id() != null) {
+            coordonees.setId(coordonneesDTO.id());
+        }
+        coordonees.setLatitude(coordonneesDTO.latitude());
+        coordonees.setLongitude(coordonneesDTO.longitude());
+        coordonees.setJeuxId(coordonneesDTO.jeuxId());
         return coordonees;
     }
 
@@ -78,9 +82,11 @@ public class Mapper {
 
     public static Reservation toReservationEntity(ReservationDTO reservationDTO) {
         Reservation reservation = new Reservation();
-        reservation.setId(reservationDTO.id());
-        reservation.setUtilisateurId(reservationDTO.utilisateurId().intValue());
-        reservation.setJeuxId(reservationDTO.jeuxId().intValue());
+        if (reservationDTO.id() != null) {
+            reservation.setId(reservationDTO.id());
+        }
+        reservation.setUtilisateurId(reservationDTO.utilisateurId());
+        reservation.setJeuxId(reservationDTO.jeuxId());
         reservation.setReservation(reservationDTO.reservation());
         reservation.setDateDebut(reservationDTO.dateDebut());
         reservation.setDateFin(reservationDTO.dateFin());
