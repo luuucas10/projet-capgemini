@@ -2,7 +2,7 @@ spring:
   application:
     name: polytech
   datasource:
-    url:jdbc: jdbc:mariadb://localhost:3306/aire
+    url:jdbc: jdbc:mariadb://localhost:3306/capegemini
     username: toto
     password: test
     driver-class-name: org.mariadb.jdbc.Driver
@@ -11,4 +11,4 @@ spring:
       hibernate.dialect: org.hibernate.dialect.MariaDBDialect
     show-sql: true
   config:
-    import: "optional:file:.env[.yml]" 
+    import: "optional:file:.env[.yml]"
