@@ -1,15 +1,14 @@
-package com.polytech.mapper;
+package com.polytech.polytech.mapper;
 
 import com.polytech.polytech.entity.Utilisateurs;
 
 import com.polytech.polytech.entity.Jeux;
 import com.polytech.polytech.entity.Coordonees;
 import com.polytech.polytech.entity.Reservation;
-import com.polytech.DTO.UtilisateurDTO;
-import com.polytech.DTO.JeuxDTO;
-import com.polytech.DTO.CoordonneesDTO;
-import com.polytech.DTO.ReservationDTO;
-
+import com.polytech.polytech.DTO.UtilisateurDTO;
+import com.polytech.polytech.DTO.JeuxDTO;
+import com.polytech.polytech.DTO.CoordonneesDTO;
+import com.polytech.polytech.DTO.ReservationDTO;
 
 public class Mapper {
     public static UtilisateurDTO toUtilisateurDTO(Utilisateurs utilisateur) {
@@ -19,8 +18,7 @@ public class Mapper {
                 utilisateur.getPrenom(),
                 utilisateur.getMail(),
                 utilisateur.getPassword(),
-                utilisateur.getUsername()
-        );
+                utilisateur.getUsername());
     }
 
     public static Utilisateurs toUtilisateurEntity(UtilisateurDTO utilisateurDTO) {
@@ -39,8 +37,7 @@ public class Mapper {
                 jeux.getId(),
                 jeux.getNom(),
                 jeux.getQuantite(),
-                jeux.getDescription()
-        );
+                jeux.getDescription());
     }
 
     public static Jeux toJeuxEntity(JeuxDTO jeuxDTO) {
@@ -57,8 +54,7 @@ public class Mapper {
                 coordonnees.getId(),
                 coordonnees.getLatitude(),
                 coordonnees.getLongitude(),
-                coordonnees.getJeuxId()
-        );
+                coordonnees.getJeuxId());
     }
 
     public static ReservationDTO toReservationDTO(Reservation reservation) {
@@ -68,8 +64,7 @@ public class Mapper {
                 reservation.getJeuxId(),
                 reservation.getReservation(),
                 reservation.getDateDebut(),
-                reservation.getDateFin()
-        );
+                reservation.getDateFin());
     }
 
     public static Reservation toReservationEntity(ReservationDTO reservationDTO) {
