@@ -13,13 +13,10 @@ import com.polytech.polytech.mapper.Mapper;
 @Service
 public class UtilisateurService {
     private final UtilisateurRepository utilisateurRepository;
-    private final ReservationRepository reservationRepository;
 
     @Autowired
-    public UtilisateurService(UtilisateurRepository utilisateurRepository,
-            ReservationRepository reservationRepository) {
+    public UtilisateurService(UtilisateurRepository utilisateurRepository) {
         this.utilisateurRepository = utilisateurRepository;
-        this.reservationRepository = reservationRepository;
     }
 
     public List<UtilisateurDTO> getAllUtilisateurs() {
@@ -28,10 +25,37 @@ public class UtilisateurService {
                 .map(Mapper::toUtilisateurDTO).toList();
     }
 
-    public UtilisateurDTO getById(Long id) {
+    public UtilisateurDTO findUtilisateurById(Long id) {
         Utilisateurs utilisateur = utilisateurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur not found with id: " + id));
         return Mapper.toUtilisateurDTO(utilisateur);
+    }
+
+    public UtilisateurDTO saveUtilisateur(UtilisateurDTO utilisateurDTO) {
+        Utilisateurs utilisateur = Mapper.toUtilisateurEntity(utilisateurDTO);
+        Utilisateurs savedUtilisateur = utilisateurRepository.save(utilisateur);
+        return Mapper.toUtilisateurDTO(savedUtilisateur);
+    }
+
+    public UtilisateurDTO updateUtilisateur(Long id, UtilisateurDTO utilisateurDTO) {
+        Utilisateurs existingUtilisateur = utilisateurRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Utilisateur not found with id: " + id));
+
+        existingUtilisateur.setNom(utilisateurDTO.nom());
+        existingUtilisateur.setPrenom(utilisateurDTO.prenom());
+        existingUtilisateur.setMail(utilisateurDTO.mail());
+        existingUtilisateur.setPassword(utilisateurDTO.password());
+        existingUtilisateur.setUsername(utilisateurDTO.username());
+
+        Utilisateurs updatedUtilisateur = utilisateurRepository.save(existingUtilisateur);
+        return Mapper.toUtilisateurDTO(updatedUtilisateur);
+    }
+
+    public void deleteUtilisateurById(Long id) {
+        if (!utilisateurRepository.existsById(id)) {
+            throw new RuntimeException("Utilisateur not found with id: " + id);
+        }
+        utilisateurRepository.deleteById(id);
     }
 
 }
