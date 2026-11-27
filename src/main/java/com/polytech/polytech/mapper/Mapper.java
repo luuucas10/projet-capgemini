@@ -49,6 +49,15 @@ public class Mapper {
         return jeux;
     }
 
+    public static Coordonees toCoordonneesEntity(CoordoneesDTO coordonneesDTO) {
+        Coordonees coordonees = new  Coordonees();
+        coordonees.setId(coordonneesDTO.id());
+        coordonees.setId(coordonneesDTO.latitude());
+        coordonees.setId(coordonneesDTO.longitude());
+        coordonees.setId(coordonneesDTO.jeuxId());
+        return coordonees;
+    }
+
     public static CoordonneesDTO toCoordonneesDTO(Coordonees coordonnees) {
         return new CoordonneesDTO(
                 coordonnees.getId(),
