@@ -23,8 +23,7 @@ public class UtilisateurService {
 
     public List<UtilisateurDTO> getAllUtilisateurs() {
         List<Utilisateurs> utilisateurs = utilisateurRepository.findAll();
-        return utilisateurs.stream()
-                .map(Mapper::toUtilisateurDTO).toList();
+        return utilisateurs.stream().map(Mapper::toUtilisateurDTO).toList();
     }
 
     public UtilisateurDTO getById(Long id) {
